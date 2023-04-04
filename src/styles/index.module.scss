@@ -1,0 +1,136 @@
+.container {
+  margin: 20rem auto;
+  max-width: 40rem;
+  width: 100%;
+  border: 1px solid #bdbdbd;
+  border-radius: 18px;
+  padding: 3rem 5rem;
+
+  .card {
+    display: flex;
+
+    .logo {
+      width: 30px;
+      height: 20px;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      color: #282051;
+    }
+  }
+
+  .text {
+    h6 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .text2 {
+    line-height: 1.6rem;
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 3rem;
+
+    input {
+      font-size: 1.6rem;
+      outline: none;
+      color: #bdbdbd;
+      border: none;
+      width: 100%;
+    }
+
+    .input_name,
+    .input_password {
+      display: flex;
+      align-items: center;
+      border: 1px solid #bdbdbd;
+      border-radius: 8px;
+
+      .icon {
+        font-size: 4rem;
+        padding: 1rem;
+        color: #828282;
+      }
+    }
+    .register_btn {
+      padding-top: 1rem;
+
+      button {
+        font-size: 1.6rem;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        background-color: #2f80ed;
+        padding: 1rem;
+        color: #ffffff;
+
+        &:hover {
+          filter: opacity(0.9);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+
+    .social_text {
+      padding-top: 2rem;
+
+      p {
+        font-size: 1.4rem;
+        text-align: center;
+        color: #828282;
+      }
+    }
+
+    .social_icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding-top: 2rem;
+
+      button {
+        border: none;
+        background-color: #ffffff;
+
+        &:hover {
+          filter: opacity(0.9);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+
+    .member_link {
+      padding-top: 1rem;
+
+      p {
+        font-size: 1.4rem;
+        text-align: center;
+        color: #828282;
+      }
+
+      .link_login {
+        color: #2d9cdb;
+        font-size: 1.4rem;
+        text-decoration: none;
+
+        &:hover {
+          filter: opacity(0.9);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
