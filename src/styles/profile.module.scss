@@ -1,0 +1,149 @@
+.containerheader {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 8rem;
+
+  .header_items {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 1.6rem;
+      color: #282051;
+    }
+
+    .headerlogo {
+      width: 30px;
+      height: 20px;
+    }
+  }
+
+  .avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .avatarpicture {
+      width: 32px;
+      height: 36.69px;
+      border-radius: 8px;
+    }
+
+    strong {
+      font-size: 1.2rem;
+      color: #333333;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      color: #333333;
+    }
+  }
+}
+
+.navigation {
+  text-align: center;
+  padding-top: 3rem;
+
+  strong {
+    font-size: 3.6rem;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 1.8rem;
+    padding-top: 1rem;
+  }
+}
+
+.card {
+  margin: 5rem auto;
+  max-width: 80rem;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+
+  .profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 2rem 8rem;
+  }
+
+  .profiletitle {
+    h6 {
+      font-size: 2.4rem;
+      font-weight: 400;
+    }
+
+    p {
+      color: #828282;
+      font-size: 1.3rem;
+      line-height: 3rem;
+    }
+  }
+
+  .buttonedit {
+    button {
+      font-size: 1.6rem;
+      border-radius: 8px;
+      border: 1px solid #828282;
+      color: #828282;
+      padding: 0.5rem 3rem;
+      background-color: #ffffff;
+
+      &:hover {
+        filter: opacity(0.9);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .photo {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    align-items: center;
+    gap: 20rem;
+    padding: 2rem 8rem;
+    border-bottom: 1px solid #e0e0e0;
+
+    p {
+      font-size: 1.3rem;
+      color: #bdbdbd;
+      text-transform: uppercase;
+    }
+
+    .avatarpicture {
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+    }
+  }
+
+  .info,
+  .password {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    align-items: center;
+    gap: 20.5rem;
+    padding: 2rem 8rem;
+    border-bottom: 1px solid #e0e0e0;
+
+    strong {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    p {
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      color: #bdbdbd;
+    }
+  }
+
+  .password {
+    border-bottom: none;
+  }
+}
