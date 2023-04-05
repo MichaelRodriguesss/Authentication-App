@@ -38,6 +38,67 @@
       font-size: 2rem;
       color: #333333;
     }
+    button {
+      border: none;
+      background: none;
+    }
+
+    .popup {
+      width: 18.8rem;
+      height: 16rem;
+      border-radius: 12px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      position: absolute;
+      top: 8.3rem;
+      right: 8rem;
+      padding: 1rem;
+
+      .popupone {
+        background: #f2f2f2;
+        border-radius: 8px;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #4f4f4f;
+        font-size: 1.2rem;
+        padding: 1rem;
+
+        .popupicon {
+          font-size: 1.8rem;
+        }
+      }
+
+      .logout {
+        padding-top: 2.5rem;
+        border-top: 1px solid #e0e0e0;
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          border: none;
+          background: none;
+          font-size: 1.2rem;
+          color: #eb5757;
+          padding: 0 1rem;
+
+          &:hover {
+            filter: opacity(0.9);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .popupicon {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -85,13 +146,14 @@
   }
 
   .buttonedit {
-    button {
+    .link_edit {
       font-size: 1.6rem;
       border-radius: 8px;
       border: 1px solid #828282;
       color: #828282;
       padding: 0.5rem 3rem;
       background-color: #ffffff;
+      text-decoration: none;
 
       &:hover {
         filter: opacity(0.9);
