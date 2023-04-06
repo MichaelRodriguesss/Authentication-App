@@ -22,9 +22,10 @@ export default function Header({ dropdown, setDropdown }) {
         </div>
 
         <div className={styles.avatar}>
-          <Image src={avatar} alt="avatar" className={styles.avatarpicture} />
-          <strong>Xanthe Neal</strong>
           <button onClick={openPopup}>
+            <Image src={avatar} alt="avatar" className={styles.avatarpicture} />
+            <strong>Xanthe Neal</strong>
+
             {dropdown ? (
               <MdOutlineArrowDropUp className={styles.arrow} />
             ) : (
@@ -35,11 +36,12 @@ export default function Header({ dropdown, setDropdown }) {
           {dropdown && (
             <>
               <div className={styles.popup}>
-                <p className={styles.popupone}>
+                <p>
                   <MdPersonPin className={styles.popupicon} />
                   My Profile
                 </p>
-                <p className={styles.popuptwo}>
+
+                <p>
                   <BsPeopleFill className={styles.popupicon} />
                   Group Chat
                 </p>

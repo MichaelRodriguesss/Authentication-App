@@ -39,29 +39,29 @@ export default function Home() {
 
           <div className={styles.info}>
             <p>Name</p>
-            <strong>Xanthe Neal</strong>
+            <span>Xanthe Neal</span>
           </div>
 
           <div className={styles.info}>
             <p>Bio</p>
-            <strong>
+            <span>
               I am a software developer and a big fan of devchallenges...
-            </strong>
+            </span>
           </div>
 
           <div className={styles.info}>
             <p>Phone</p>
-            <strong>40028922</strong>
+            <span>40028922</span>
           </div>
 
           <div className={styles.info}>
             <p>Email</p>
-            <strong>michaeledavi12@gmail.com</strong>
+            <span>michaeledavi12@gmail.com</span>
           </div>
 
           <div className={styles.password}>
             <p>password</p>
-            <strong>**************</strong>
+            <span>**************</span>
           </div>
         </div>
       </section>
