@@ -22,26 +22,26 @@ export default function Home() {
           <h6>Login</h6>
         </div>
 
-        <div className={styles.input}>
-          <div className={styles.input_name}>
+        <div className={styles.inputContainer}>
+          <div className={styles.inputName}>
             <FaEnvelope className={styles.icon} />
             <input type="text" placeholder="Email" />
           </div>
 
-          <div className={styles.input_password}>
+          <div className={styles.inputPassword}>
             <GiPadlock className={styles.icon} />
             <input type="text" placeholder="Password" />
           </div>
 
-          <div className={styles.register_btn}>
+          <div className={styles.registerBtn}>
             <button>Login</button>
           </div>
 
-          <div className={styles.social_text}>
+          <div className={styles.socialText}>
             <p>or continue with these social profile</p>
           </div>
 
-          <div className={styles.social_icons}>
+          <div className={styles.socialIcons}>
             <button>
               <Image src={google} alt="Google" />
             </button>
@@ -56,10 +56,10 @@ export default function Home() {
             </button>
           </div>
 
-          <div className={styles.member_link}>
+          <div className={styles.memberLink}>
             <p>
               Don’t have an account yet?
-              <Link href="/" className={styles.link_login}>
+              <Link href="/" className={styles.linkLogin}>
                 {" "}
                 Register
               </Link>

@@ -1,9 +1,9 @@
-.containerheader {
+.containerHeader {
   display: flex;
   justify-content: space-between;
   padding: 2rem 8rem;
 
-  .header_items {
+  .headerItems {
     display: flex;
     align-items: center;
 
@@ -12,7 +12,7 @@
       color: #282051;
     }
 
-    .headerlogo {
+    .headerLogo {
       width: 30px;
       height: 20px;
     }
@@ -23,7 +23,7 @@
     align-items: center;
     gap: 1rem;
 
-    .avatarpicture {
+    .avatarPicture {
       width: 32px;
       height: 36.69px;
       border-radius: 8px;
@@ -69,7 +69,7 @@
         padding: 1rem;
         margin-bottom: 1rem;
 
-        .popupicon {
+        .popupIcon {
           font-size: 1.8rem;
         }
 
@@ -99,7 +99,7 @@
             transition: all 0.3s ease-in-out;
           }
 
-          .popupicon {
+          .popupIcon {
             font-size: 1.8rem;
           }
         }
@@ -138,7 +138,7 @@
     padding: 2rem 2rem;
   }
 
-  .profiletitle {
+  .profileTitle {
     h6 {
       font-size: 2.4rem;
       font-weight: 400;
@@ -151,8 +151,8 @@
     }
   }
 
-  .buttonedit {
-    .link_edit {
+  .buttonEdit {
+    .linkEdit {
       font-size: 1.6rem;
       border-radius: 8px;
       border: 1px solid #828282;
@@ -183,7 +183,7 @@
       text-transform: uppercase;
     }
 
-    .avatarpicture {
+    .avatarPicture {
       width: 72px;
       height: 72px;
       border-radius: 8px;
@@ -218,7 +218,7 @@
 }
 
 @media (max-width: 850px) {
-  .containerheader {
+  .containerHeader {
     padding: 2rem 2rem;
     .avatar {
       strong {
@@ -258,7 +258,7 @@
     border: none;
 
     .profile {
-      .profiletitle {
+      .profileTitle {
         p {
           line-height: 2rem;
           padding: 0.5rem 5rem 0 0;

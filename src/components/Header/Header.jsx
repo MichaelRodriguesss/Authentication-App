@@ -15,15 +15,15 @@ export default function Header({ dropdown, setDropdown }) {
 
   return (
     <>
-      <header className={styles.containerheader}>
-        <div className={styles.header_items}>
-          <Image src={logo} alt="devchallenges" className={styles.headerlogo} />
+      <header className={styles.containerHeader}>
+        <div className={styles.headerItems}>
+          <Image src={logo} alt="devchallenges" className={styles.headerLogo} />
           <h1>devchallenges</h1>
         </div>
 
         <div className={styles.avatar}>
           <button onClick={openPopup}>
-            <Image src={avatar} alt="avatar" className={styles.avatarpicture} />
+            <Image src={avatar} alt="avatar" className={styles.avatarPicture} />
             <strong>Xanthe Neal</strong>
 
             {dropdown ? (
@@ -37,18 +37,18 @@ export default function Header({ dropdown, setDropdown }) {
             <>
               <div className={styles.popup}>
                 <p>
-                  <MdPersonPin className={styles.popupicon} />
+                  <MdPersonPin className={styles.popupIcon} />
                   My Profile
                 </p>
 
                 <p>
-                  <BsPeopleFill className={styles.popupicon} />
+                  <BsPeopleFill className={styles.popupIcon} />
                   Group Chat
                 </p>
 
                 <div className={styles.logout}>
                   <button>
-                    <TbLogout className={styles.popupicon} />
+                    <TbLogout className={styles.popupIcon} />
                     Logout
                   </button>
                 </div>

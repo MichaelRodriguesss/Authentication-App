@@ -22,32 +22,32 @@ export default function Home() {
           <h6>Join thousands of learners from around the world</h6>
         </div>
 
-        <div className={styles.text2}>
+        <div className={styles.textTwo}>
           <p>
             Master web development by making real-life projects. There are
             multiple paths for you to choose
           </p>
         </div>
-        <div className={styles.input}>
-          <div className={styles.input_name}>
+        <div className={styles.inputContainer}>
+          <div className={styles.inputName}>
             <FaEnvelope className={styles.icon} />
             <input type="text" placeholder="Email" />
           </div>
 
-          <div className={styles.input_password}>
+          <div className={styles.inputPassword}>
             <GiPadlock className={styles.icon} />
             <input type="text" placeholder="Password" />
           </div>
 
-          <div className={styles.register_btn}>
+          <div className={styles.registerBtn}>
             <button>Start coding now</button>
           </div>
 
-          <div className={styles.social_text}>
+          <div className={styles.socialText}>
             <p>or continue with these social profile</p>
           </div>
 
-          <div className={styles.social_icons}>
+          <div className={styles.socialIcons}>
             <button>
               <Image src={google} alt="Google" />
             </button>
@@ -62,10 +62,10 @@ export default function Home() {
             </button>
           </div>
 
-          <div className={styles.member_link}>
+          <div className={styles.memberLink}>
             <p>
-              Adready a member?{" "}
-              <Link href="/login" className={styles.link_login}>
+              Already a member?{" "}
+              <Link href="/login" className={styles.linkLogin}>
                 Login
               </Link>
             </p>

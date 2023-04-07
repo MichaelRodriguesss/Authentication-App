@@ -19,14 +19,14 @@ export default function Home() {
       </nav>
 
       <section className={styles.card}>
-        <div className={styles.containercard}>
+        <div className={styles.containerCard}>
           <div className={styles.profile}>
-            <div className={styles.profiletitle}>
+            <div className={styles.profileTitle}>
               <h6>profile</h6>
               <p>Some info may be visible to other people</p>
             </div>
-            <div className={styles.buttonedit}>
-              <Link href="/edit" className={styles.link_edit}>
+            <div className={styles.buttonEdit}>
+              <Link href="/edit" className={styles.linkEdit}>
                 Edit
               </Link>
             </div>
@@ -34,7 +34,7 @@ export default function Home() {
 
           <div className={styles.photo}>
             <p>Photo</p>
-            <Image src={avatar} alt="avatar" className={styles.avatarpicture} />
+            <Image src={avatar} alt="avatar" className={styles.avatarPicture} />
           </div>
 
           <div className={styles.info}>

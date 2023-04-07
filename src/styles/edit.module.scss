@@ -1,9 +1,9 @@
-.navigationedit {
+.navigationEdit {
   margin: 5rem auto 0 auto;
   max-width: 80rem;
   width: 100%;
 
-  .navigation_link {
+  .navigationLink {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -32,7 +32,7 @@
     padding: 2rem 8rem;
   }
 
-  .profiletitle {
+  .profileTitle {
     h6 {
       font-size: 2.4rem;
       font-weight: 400;
@@ -45,20 +45,24 @@
     }
   }
 
-  .photo {
+  .photoContainer {
     display: grid;
     grid-template-columns: 2fr 19fr;
     align-items: center;
     gap: 3rem;
     padding: 0 8rem 2rem 8rem;
 
-    .ola {
+    .photo {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
 
-      .photoicon {
+      button {
+        border: none;
+        border-radius: 8px;
+      }
+
+      .photoIcon {
         font-size: 2rem;
         position: absolute;
         color: #ffffff;
@@ -77,7 +81,7 @@
       text-transform: uppercase;
     }
 
-    .avatarpicture {
+    .avatarPicture {
       width: 72px;
       height: 72px;
       border-radius: 8px;
@@ -108,7 +112,7 @@
       padding-bottom: 1rem;
     }
 
-    .bioinput {
+    .bioInput {
       padding: 1rem 0 6rem 2rem;
       border: 1px solid #828282;
       border-radius: 12px;
@@ -145,8 +149,8 @@
 }
 
 @media (max-width: 850px) {
-  .navigationedit {
-    .navigation_link {
+  .navigationEdit {
+    .navigationLink {
       padding: 0 7rem;
     }
   }

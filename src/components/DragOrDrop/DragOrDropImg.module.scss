@@ -1,0 +1,21 @@
+.dragImg {
+  position: absolute;
+  top: 15%;
+  left: 0;
+
+  img {
+    width: 50rem;
+    height: 22.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .dragImg {
+    left: 3%;
+
+    img {
+      width: 33rem;
+      height: 26.5rem;
+    }
+  }
+}
