@@ -4,8 +4,8 @@ import { MdPersonPin } from "react-icons/md";
 import { BsPeopleFill } from "react-icons/bs";
 import { TbLogout } from "react-icons/tb";
 import styles from "../../styles/profile.module.scss";
-const logo = require("../../assets/images/devchallenges.png");
-const avatar = require("../../assets/images/profile-pic-test.jpg");
+import logo from "../../assets/images/devchallenges.png";
+import avatar from "../../assets/images/profile-pic-test.jpg";
 import Image from "next/image";
 
 export default function Header({ dropdown, setDropdown }) {

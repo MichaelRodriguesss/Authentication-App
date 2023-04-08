@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/profile.module.scss";
-const avatar = require("../assets/images/profile-pic-test.jpg");
+import avatar from "../assets/images/profile-pic-test.jpg";
 import Header from "../components/Header/Header";
 
 import { useState } from "react";

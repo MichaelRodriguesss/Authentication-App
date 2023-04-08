@@ -6,7 +6,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { MdPhotoCamera } from "react-icons/md";
 import Modal from "../components/Modal/Modal";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
@@ -53,7 +53,10 @@ export default function Home() {
                 />
               </button>
               {isOpen && <Modal setIsOpen={setIsOpen} setAvatar={setAvatar} />}
-              <MdPhotoCamera className={styles.photoicon} />
+              <MdPhotoCamera
+                className={styles.photoIcon}
+                onClick={() => setIsOpen(true)}
+              />
             </div>
             <p>Change photo</p>
           </div>

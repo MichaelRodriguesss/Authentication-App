@@ -1,11 +1,11 @@
 import styles from "../styles/index.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-const logo = require("../assets/images/devchallenges.png");
-const google = require("../assets/images/Google.svg");
-const facebook = require("../assets/images/Facebook.svg");
-const twitter = require("../assets/images/Twitter.svg");
-const github = require("../assets/images/Github.svg");
+import logo from "../assets/images/devchallenges.png";
+import google from "../assets/images/Google.svg";
+import facebook from "../assets/images/Facebook.svg";
+import twitter from "../assets/images/Twitter.svg";
+import github from "../assets/images/Github.svg";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
 
