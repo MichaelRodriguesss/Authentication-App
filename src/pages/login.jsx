@@ -6,8 +6,8 @@ import google from "../assets/images/Google.svg";
 import facebook from "../assets/images/Facebook.svg";
 import twitter from "../assets/images/Twitter.svg";
 import github from "../assets/images/Github.svg";
-import { FaEnvelope } from "react-icons/fa";
-import { GiPadlock } from "react-icons/gi";
+
+import LoginForm from "../components/Validation/LoginValidation";
 
 export default function Home() {
   return (
@@ -23,19 +23,7 @@ export default function Home() {
         </div>
 
         <div className={styles.inputContainer}>
-          <div className={styles.inputName}>
-            <FaEnvelope className={styles.icon} />
-            <input type="text" placeholder="Email" />
-          </div>
-
-          <div className={styles.inputPassword}>
-            <GiPadlock className={styles.icon} />
-            <input type="text" placeholder="Password" />
-          </div>
-
-          <div className={styles.registerBtn}>
-            <button>Login</button>
-          </div>
+          <LoginForm />
 
           <div className={styles.socialText}>
             <p>or continue with these social profile</p>

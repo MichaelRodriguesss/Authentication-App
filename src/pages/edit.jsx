@@ -5,8 +5,8 @@ import Header from "../components/Header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdPhotoCamera } from "react-icons/md";
 import Modal from "../components/Modal/Modal";
-
 import { useState } from "react";
+import Edit from "../components/Validation/EditValidation";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
@@ -60,37 +60,7 @@ export default function Home() {
             </div>
             <p>Change photo</p>
           </div>
-
-          <div className={styles.info}>
-            <p>Nome</p>
-            <input type="text" placeholder="Enter your name..." />
-          </div>
-
-          <div className={styles.info}>
-            <p>Bio</p>
-            <textarea
-              placeholder="Enter your bio..."
-              className={styles.bioInput}
-            />
-          </div>
-
-          <div className={styles.info}>
-            <p>Phone</p>
-            <input type="tel" placeholder="Enter your phone..." />
-          </div>
-
-          <div className={styles.info}>
-            <p>Email</p>
-            <input type="text" placeholder="Enter your email..." />
-          </div>
-
-          <div className={styles.info}>
-            <p>Password</p>
-            <input type="password" placeholder="Enter your password..." />
-          </div>
-          <div className={styles.info}>
-            <button>Save</button>
-          </div>
+          <Edit />
         </div>
       </section>
     </>
