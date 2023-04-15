@@ -7,7 +7,7 @@ import facebook from "../assets/images/Facebook.svg";
 import twitter from "../assets/images/Twitter.svg";
 import github from "../assets/images/Github.svg";
 
-import LoginForm from "../components/Validation/LoginValidation";
+import LoginForm from "../components/Form/Login";
 
 export default function Home() {
   return (

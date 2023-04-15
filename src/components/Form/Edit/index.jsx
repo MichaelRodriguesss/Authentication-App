@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import styles from "../../styles/edit.module.scss";
+import styles from "../../../styles/edit.module.scss";
 
 const EditForm = () => {
   const {

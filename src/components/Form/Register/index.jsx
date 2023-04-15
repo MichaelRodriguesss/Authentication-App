@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import styles from "../../styles/index.module.scss";
+import styles from "../../../styles/index.module.scss";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
+import { BsPencilFill } from "react-icons/bs";
 
 const RegisterForm = () => {
   const {
@@ -14,6 +15,7 @@ const RegisterForm = () => {
   const handleError = (errors) => {};
 
   const registerOptions = {
+    name: { required: "Name is required" },
     email: { required: "Email is required" },
     password: {
       required: "Password is required",
@@ -27,6 +29,20 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(handleRegistration, handleError)}>
       <div className={styles.inputName}>
+        <BsPencilFill className={styles.icon} />
+        <input
+          type="name"
+          name="name"
+          placeholder="Name"
+          {...register("name", registerOptions.name)}
+        />
+      </div>
+
+      <p style={{ color: "#EB5757", fontSize: "1.6rem" }}>
+        {errors?.name && errors.name.message}
+      </p>
+
+      <div className={styles.inputEmail}>
         <FaEnvelope className={styles.icon} />
         <input
           type="email"

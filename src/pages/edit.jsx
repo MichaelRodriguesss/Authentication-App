@@ -6,7 +6,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { MdPhotoCamera } from "react-icons/md";
 import Modal from "../components/Modal/Modal";
 import { useState } from "react";
-import Edit from "../components/Validation/EditValidation";
+import Edit from "../components/Form/Edit";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);

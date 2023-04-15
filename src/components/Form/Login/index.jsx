@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import styles from "../../styles/index.module.scss";
+import styles from "../../../styles/index.module.scss";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
 
