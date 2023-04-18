@@ -3,6 +3,10 @@ import styles from "../../../styles/index.module.scss";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
 import { BsPencilFill } from "react-icons/bs";
+import { Api } from "../../../providers/Api/api";
+import Router from "next/router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterForm = () => {
   const {
@@ -11,8 +15,24 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const handleRegistration = (data) => console.log(data);
-  const handleError = (errors) => {};
+  const handleRegistration = async (data) => {
+    const { push } = Router;
+    try {
+      const response = await Api.post("/api/users/", {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
+      push("/login");
+      toast.success("User created successfully!");
+      return console.log(response);
+    } catch (err) {
+      if (err.response.status === 400) {
+        return toast.error(err.response.data);
+      }
+      toast.error("Error creating user!");
+    }
+  };
 
   const registerOptions = {
     name: { required: "Name is required" },
@@ -27,7 +47,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+    <form onSubmit={handleSubmit(handleRegistration)}>
       <div className={styles.inputName}>
         <BsPencilFill className={styles.icon} />
         <input

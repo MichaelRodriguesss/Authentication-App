@@ -2,16 +2,33 @@ import { useForm } from "react-hook-form";
 import styles from "../../../styles/index.module.scss";
 import { FaEnvelope } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
+import { Api } from "../../../providers/Api/api";
+import Router from "next/router";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  const { push } = Router;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleRegistration = (data) => console.log(data);
-  const handleError = (errors) => {};
+  const handleLogin = async (data) => {
+    try {
+      const response = await Api.post("/api/users/login", {
+        email: data.email,
+        password: data.password,
+      });
+      localStorage.setItem("userAuthentication", JSON.stringify(response.data));
+      push("/profile");
+      toast.success("User logged successfully!");
+      return console.log(response);
+    } catch (err) {
+      toast.error("Error logging user!");
+      return console.log(err);
+    }
+  };
 
   const registerOptions = {
     email: { required: "Email is required" },
@@ -21,7 +38,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+    <form onSubmit={handleSubmit(handleLogin)}>
       <div className={styles.inputName}>
         <FaEnvelope className={styles.icon} />
         <input

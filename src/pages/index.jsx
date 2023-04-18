@@ -6,7 +6,6 @@ import google from "../assets/images/Google.svg";
 import facebook from "../assets/images/Facebook.svg";
 import twitter from "../assets/images/Twitter.svg";
 import github from "../assets/images/Github.svg";
-
 import RegisterForm from "../components/Form/Register";
 
 export default function Home() {
