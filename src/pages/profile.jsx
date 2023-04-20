@@ -5,9 +5,14 @@ import avatar from "../assets/images/profile-pic-test.jpg";
 import Header from "../components/Header/Header";
 
 import { useState } from "react";
+import { usePrivateRouter } from "@/hooks/usePrivateRouter";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
+
+  const { isAuthenticated } = usePrivateRouter();
+
+  if (!isAuthenticated) return <div />;
 
   return (
     <>

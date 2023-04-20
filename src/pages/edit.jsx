@@ -7,6 +7,7 @@ import { MdPhotoCamera } from "react-icons/md";
 import Modal from "../components/Modal/Modal";
 import { useState } from "react";
 import Edit from "../components/Form/Edit";
+import { usePrivateRouter } from "@/hooks/usePrivateRouter";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
@@ -18,6 +19,10 @@ export default function Home() {
   const myLoader = () => {
     return "https://wallpapercave.com/wp/wp9566480.png";
   };
+
+  const { isAuthenticated } = usePrivateRouter();
+
+  if (!isAuthenticated) return <div />;
 
   return (
     <>

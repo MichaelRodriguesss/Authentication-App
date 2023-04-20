@@ -21,6 +21,7 @@ const LoginForm = () => {
         password: data.password,
       });
       localStorage.setItem("userAuthentication", JSON.stringify(response.data));
+      Api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
       push("/profile");
       toast.success("User logged successfully!");
       return console.log(response);
