@@ -5,8 +5,11 @@ import { GiPadlock } from "react-icons/gi";
 import { Api } from "../../../providers/Api/api";
 import Router from "next/router";
 import { toast } from "react-toastify";
+import { Loading } from "../../../components/Loading/Loading";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
   const { push } = Router;
   const {
     register,
@@ -16,6 +19,7 @@ const LoginForm = () => {
 
   const handleLogin = async (data) => {
     try {
+      setLoading(true);
       const response = await Api.post("/api/users/login", {
         email: data.email,
         password: data.password,
@@ -23,9 +27,11 @@ const LoginForm = () => {
       localStorage.setItem("userAuthentication", JSON.stringify(response.data));
       Api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
       push("/profile");
+      setLoading(false);
       toast.success("User logged successfully!");
       return console.log(response);
     } catch (err) {
+      setLoading(false);
       toast.error("Error logging user!");
       return console.log(err);
     }
@@ -69,7 +75,7 @@ const LoginForm = () => {
       </p>
 
       <div className={styles.registerBtn}>
-        <button>Start coding now</button>
+        <button>{loading ? <Loading /> : "Login"}</button>
       </div>
     </form>
   );

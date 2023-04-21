@@ -1,0 +1,27 @@
+.containerLoading {
+  display: flex;
+  height: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ffff;
+  box-sizing: border-box;
+  background: transparent;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

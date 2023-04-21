@@ -7,8 +7,11 @@ import { Api } from "../../../providers/Api/api";
 import Router from "next/router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Loading } from "../../../components/Loading/Loading";
+import { useState } from "react";
 
 const RegisterForm = () => {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -18,15 +21,18 @@ const RegisterForm = () => {
   const handleRegistration = async (data) => {
     const { push } = Router;
     try {
+      setLoading(true);
       const response = await Api.post("/api/users/", {
         name: data.name,
         email: data.email,
         password: data.password,
       });
       push("/login");
+      setLoading(false);
       toast.success("User created successfully!");
       return console.log(response);
     } catch (err) {
+      setLoading(false);
       if (err.response.status === 400) {
         return toast.error(err.response.data);
       }
@@ -57,11 +63,9 @@ const RegisterForm = () => {
           {...register("name", registerOptions.name)}
         />
       </div>
-
       <p style={{ color: "#EB5757", fontSize: "1.6rem" }}>
         {errors?.name && errors.name.message}
       </p>
-
       <div className={styles.inputEmail}>
         <FaEnvelope className={styles.icon} />
         <input
@@ -71,11 +75,9 @@ const RegisterForm = () => {
           {...register("email", registerOptions.email)}
         />
       </div>
-
       <p style={{ color: "#EB5757", fontSize: "1.6rem" }}>
         {errors?.email && errors.email.message}
       </p>
-
       <div className={styles.inputPassword}>
         <GiPadlock className={styles.icon} />
         <input
@@ -85,13 +87,11 @@ const RegisterForm = () => {
           {...register("password", registerOptions.password)}
         />
       </div>
-
       <p style={{ color: "#EB5757", fontSize: "1.6rem" }}>
         {errors?.password && errors.password.message}
       </p>
-
       <div className={styles.registerBtn}>
-        <button>Start coding now</button>
+        <button>{loading ? <Loading /> : "Start coding now"}</button>
       </div>
     </form>
   );

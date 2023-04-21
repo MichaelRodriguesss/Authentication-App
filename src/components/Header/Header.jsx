@@ -7,6 +7,7 @@ import styles from "../../styles/profile.module.scss";
 import logo from "../../assets/images/devchallenges.png";
 import avatar from "../../assets/images/profile-pic-test.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header({ dropdown, setDropdown }) {
   const openPopup = () => {
@@ -18,7 +19,9 @@ export default function Header({ dropdown, setDropdown }) {
       <header className={styles.containerHeader}>
         <div className={styles.headerItems}>
           <Image src={logo} alt="devchallenges" className={styles.headerLogo} />
-          <h1>devchallenges</h1>
+          <h1>
+            <Link href="/">devchallenges</Link>
+          </h1>
         </div>
 
         <div className={styles.avatar}>

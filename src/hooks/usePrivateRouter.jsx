@@ -9,16 +9,20 @@ export const usePrivateRouter = () => {
 
   const verifyToken = useCallback(async () => {
     await Api.get("/api/users/verify")
-      .then(() => setIsAuthenticated(true))
+      .then(() => {
+        setIsAuthenticated(true);
+      })
       .catch(() => router.push("/login"));
   }, []);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userAuthentication") ?? {});
+
     if (!user.token) {
       router.push("/login");
       return;
     }
+
     Api.defaults.headers.Authorization = `Bearer ${user.token}`;
     verifyToken();
   }, [verifyToken]);
