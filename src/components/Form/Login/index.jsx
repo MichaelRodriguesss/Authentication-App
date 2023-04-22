@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
-  const { push } = Router;
+
   const {
     register,
     handleSubmit,
@@ -24,16 +24,15 @@ const LoginForm = () => {
         email: data.email,
         password: data.password,
       });
+
       localStorage.setItem("userAuthentication", JSON.stringify(response.data));
       Api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
-      push("/profile");
+      Router.push("/profile");
       setLoading(false);
       toast.success("User logged successfully!");
-      return console.log(response);
     } catch (err) {
       setLoading(false);
       toast.error("Error logging user!");
-      return console.log(err);
     }
   };
 

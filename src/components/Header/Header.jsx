@@ -8,10 +8,18 @@ import logo from "../../assets/images/devchallenges.png";
 import avatar from "../../assets/images/profile-pic-test.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import Router from "next/router";
+import { toast } from "react-toastify";
 
 export default function Header({ dropdown, setDropdown }) {
   const openPopup = () => {
     setDropdown(!dropdown);
+  };
+
+  const removeToken = () => {
+    localStorage.removeItem("userAuthentication");
+    toast.success("User logged out successfully!");
+    Router.push("/login");
   };
 
   return (
@@ -50,7 +58,7 @@ export default function Header({ dropdown, setDropdown }) {
                 </p>
 
                 <div className={styles.logout}>
-                  <button>
+                  <button onClick={removeToken}>
                     <TbLogout className={styles.popupIcon} />
                     Logout
                   </button>

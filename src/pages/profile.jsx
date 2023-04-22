@@ -49,14 +49,12 @@ export default function Home() {
 
           <div className={styles.info}>
             <p>Bio</p>
-            <span>
-              I am a software developer and a big fan of devchallenges...
-            </span>
+            <span></span>
           </div>
 
           <div className={styles.info}>
             <p>Phone</p>
-            <span>40028922</span>
+            <span></span>
           </div>
 
           <div className={styles.info}>

@@ -19,18 +19,18 @@ const RegisterForm = () => {
   } = useForm();
 
   const handleRegistration = async (data) => {
-    const { push } = Router;
     try {
       setLoading(true);
+
       const response = await Api.post("/api/users/", {
         name: data.name,
         email: data.email,
         password: data.password,
       });
-      push("/login");
-      setLoading(false);
+
       toast.success("User created successfully!");
-      return console.log(response);
+      Router.push("/login");
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       if (err.response.status === 400) {
