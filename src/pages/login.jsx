@@ -9,7 +9,7 @@ import github from "../assets/images/Github.svg";
 
 import LoginForm from "../components/Form/Login";
 
-export default function Home() {
+export default function Login() {
   return (
     <>
       <div className={styles.container}>

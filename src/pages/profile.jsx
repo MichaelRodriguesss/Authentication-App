@@ -7,7 +7,7 @@ import Header from "../components/Header/Header";
 import { useState } from "react";
 import { usePrivateRouter } from "@/hooks/usePrivateRouter";
 
-export default function Home() {
+export default function Profile() {
   const [dropdown, setDropdown] = useState(false);
 
   const { isAuthenticated } = usePrivateRouter();

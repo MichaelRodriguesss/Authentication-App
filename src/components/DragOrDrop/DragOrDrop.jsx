@@ -14,6 +14,10 @@ export default function DropzoneComponent(props) {
         })
       )
     );
+
+    console.log(files);
+
+    props.setAvatarImage(acceptedFiles);
   }, []);
 
   const {

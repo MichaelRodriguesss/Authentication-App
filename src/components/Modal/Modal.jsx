@@ -3,12 +3,13 @@ import { RiCloseLine } from "react-icons/ri";
 import styles from "../../styles/modal.module.scss";
 import DropzoneComponent from "../DragOrDrop/DragOrDrop";
 
-const Modal = ({ setIsOpen, setAvatar }) => {
+const Modal = ({ setIsOpen, setAvatar, setAvatarImage }) => {
   const [preSelectAvatar, setPreSelectAvatar] = useState();
 
   const handleClickToggleAvatar = () => {
     setAvatar(preSelectAvatar);
     setIsOpen(false);
+    setAvatarImage(preSelectAvatar);
   };
 
   return (
@@ -26,6 +27,7 @@ const Modal = ({ setIsOpen, setAvatar }) => {
             <DropzoneComponent
               avatar={preSelectAvatar}
               setAvatar={setPreSelectAvatar}
+              setAvatarImage={setAvatarImage}
             />
           </div>
           <div className={styles.modalActions}>

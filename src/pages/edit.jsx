@@ -9,12 +9,13 @@ import { useState } from "react";
 import Edit from "../components/Form/Edit";
 import { usePrivateRouter } from "@/hooks/usePrivateRouter";
 
-export default function Home() {
+export default function EditPage() {
   const [dropdown, setDropdown] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [avatar, setAvatar] = useState(
     "https://wallpapercave.com/wp/wp9566480.png"
   );
+  const [avatarImage, setAvatarImage] = useState();
 
   const myLoader = () => {
     return "https://wallpapercave.com/wp/wp9566480.png";
@@ -23,6 +24,8 @@ export default function Home() {
   const { isAuthenticated } = usePrivateRouter();
 
   if (!isAuthenticated) return <div />;
+
+  console.log(avatarImage);
 
   return (
     <>
@@ -57,7 +60,14 @@ export default function Home() {
                   className={styles.avatarPicture}
                 />
               </button>
-              {isOpen && <Modal setIsOpen={setIsOpen} setAvatar={setAvatar} />}
+
+              {isOpen && (
+                <Modal
+                  setIsOpen={setIsOpen}
+                  setAvatar={setAvatar}
+                  setAvatarImage={setAvatarImage}
+                />
+              )}
               <MdPhotoCamera
                 className={styles.photoIcon}
                 onClick={() => setIsOpen(true)}
@@ -65,7 +75,7 @@ export default function Home() {
             </div>
             <p>Change photo</p>
           </div>
-          <Edit />
+          <Edit avatarImage={avatarImage} />
         </div>
       </section>
     </>
