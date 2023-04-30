@@ -9,7 +9,6 @@ const Modal = ({ setIsOpen, setAvatar, setAvatarImage }) => {
   const handleClickToggleAvatar = () => {
     setAvatar(preSelectAvatar);
     setIsOpen(false);
-    setAvatarImage(preSelectAvatar);
   };
 
   return (

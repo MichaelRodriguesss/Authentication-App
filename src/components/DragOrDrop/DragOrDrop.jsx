@@ -6,7 +6,10 @@ import styles from "../DragOrDrop/DragOrDropImg.module.scss";
 export default function DropzoneComponent(props) {
   const [files, setFiles] = useState([]);
 
+  const imageUser = [];
+
   const onDrop = useCallback((acceptedFiles) => {
+    imageUser.push(acceptedFiles);
     setFiles(
       acceptedFiles.map((file) =>
         Object.assign(file, {
@@ -15,9 +18,9 @@ export default function DropzoneComponent(props) {
       )
     );
 
-    console.log(files);
-
-    props.setAvatarImage(acceptedFiles);
+    if (imageUser.length > 0) {
+      props.setAvatarImage(imageUser[0]);
+    }
   }, []);
 
   const {
@@ -65,7 +68,7 @@ export default function DropzoneComponent(props) {
     <section>
       <>
         <div {...getRootProps({ style })}>
-          <input {...getInputProps()} />
+          <input type="file" name="test" {...getInputProps()} />
           <div>Drag and drop your images here.</div>
         </div>
         <aside className={styles.dragImg}>{thumbs}</aside>

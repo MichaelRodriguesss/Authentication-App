@@ -2,7 +2,7 @@ import { Controller, useForm } from "react-hook-form";
 import styles from "../../../styles/edit.module.scss";
 import { Loading } from "../../../components/Loading/Loading";
 import { useState } from "react";
-import { Router } from "next/router";
+import Router from "next/router";
 import { toast } from "react-toastify";
 import { Api } from "../../../providers/Api/api";
 const FormData = require("form-data");
@@ -16,25 +16,25 @@ const EditForm = (props) => {
     control,
   } = useForm();
 
+  const user = JSON.parse(localStorage.getItem("userAuthentication"));
+
   const handleEdit = async (data) => {
+    if (!user) return;
     try {
       const formData = new FormData();
-      formData.append("avatar", props.avatarImage);
+      formData.append("file", props.avatarImage[0]);
       formData.append("name", data.name);
       formData.append("bio", data.bio);
       formData.append("phone", data.phone);
       formData.append("email", data.email);
       formData.append("password", data.password);
 
-      const token = localStorage.getItem();
-      console.log(token);
-      await Api.put("/api/users/643da939c0e171c124bfa733", formData, {
+      await Api.put(`/api/users/${user._id}`, formData, {
         headers: {
-          Authorization: `Bearer ${data.token}`,
+          Authorization: `Bearer ${user.token}`,
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("aqui3");
 
       toast.success("User edited successfully!");
       Router.push("/profile");

@@ -25,8 +25,6 @@ export default function EditPage() {
 
   if (!isAuthenticated) return <div />;
 
-  console.log(avatarImage);
-
   return (
     <>
       <Header dropdown={dropdown} setDropdown={setDropdown} />
