@@ -1,18 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/profile.module.scss";
-import avatar from "../assets/images/profile-pic-test.jpg";
 import Header from "../components/Header/Header";
-
-import { useState } from "react";
+import { Api } from "../providers/Api/api";
+import { useEffect, useState } from "react";
 import { usePrivateRouter } from "@/hooks/usePrivateRouter";
 
 export default function Profile() {
   const [dropdown, setDropdown] = useState(false);
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage?.getItem("userAuthentication"));
+
+    const fetchUser = async () => {
+      try {
+        if (!user) return;
+        const response = await Api.get(`/api/users/${user._id}`);
+        return setProfile(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   const { isAuthenticated } = usePrivateRouter();
 
   if (!isAuthenticated) return <div />;
+
+  const avatar = profile?.src
+    ? `https://authentication-app-back-end.up.railway.app/images/${profile?.src}`
+    : "https://wallpapercave.com/wp/wp9566480.png";
 
   return (
     <>
@@ -39,27 +59,34 @@ export default function Profile() {
 
           <div className={styles.photo}>
             <p>Photo</p>
-            <Image src={avatar} alt="avatar" className={styles.avatarPicture} />
+            <Image
+              src={avatar}
+              width="64"
+              height="64"
+              alt="avatar"
+              loader={({ src }) => src}
+              className={styles.avatarPicture}
+            />
           </div>
 
           <div className={styles.info}>
             <p>Name</p>
-            <span>Xanthe Neal</span>
+            <span>{profile?.name}</span>
           </div>
 
           <div className={styles.info}>
             <p>Bio</p>
-            <span></span>
+            <span>{profile?.bio}</span>
           </div>
 
           <div className={styles.info}>
             <p>Phone</p>
-            <span></span>
+            <span>{profile?.phone}</span>
           </div>
 
           <div className={styles.info}>
             <p>Email</p>
-            <span>michaeledavi12@gmail.com</span>
+            <span>{profile?.email}</span>
           </div>
 
           <div className={styles.password}>

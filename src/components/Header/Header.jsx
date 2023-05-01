@@ -5,13 +5,16 @@ import { BsPeopleFill } from "react-icons/bs";
 import { TbLogout } from "react-icons/tb";
 import styles from "../../styles/profile.module.scss";
 import logo from "../../assets/images/devchallenges.png";
-import avatar from "../../assets/images/profile-pic-test.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import Router from "next/router";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { Api } from "@/providers/Api/api";
 
 export default function Header({ dropdown, setDropdown }) {
+  const [profile, setProfile] = useState(null);
+
   const openPopup = () => {
     setDropdown(!dropdown);
   };
@@ -21,6 +24,26 @@ export default function Header({ dropdown, setDropdown }) {
     toast.success("User logged out successfully!");
     Router.push("/login");
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage?.getItem("userAuthentication"));
+
+    const fetchUser = async () => {
+      try {
+        if (!user) return;
+        const response = await Api.get(`/api/users/${user._id}`);
+        return setProfile(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const avatar = profile?.src
+    ? `https://authentication-app-back-end.up.railway.app/images/${profile?.src}`
+    : "https://wallpapercave.com/wp/wp9566480.png";
 
   return (
     <>
@@ -34,8 +57,14 @@ export default function Header({ dropdown, setDropdown }) {
 
         <div className={styles.avatar}>
           <button onClick={openPopup}>
-            <Image src={avatar} alt="avatar" className={styles.avatarPicture} />
-            <strong>Xanthe Neal</strong>
+            <Image
+              src={avatar}
+              alt="avatar"
+              className={styles.avatarPicture}
+              width={68}
+              height={68}
+            />
+            <strong>{profile?.name ?? "Not found"}</strong>
 
             {dropdown ? (
               <MdOutlineArrowDropUp className={styles.arrow} />

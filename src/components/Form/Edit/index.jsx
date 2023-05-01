@@ -1,7 +1,7 @@
 import { Controller, useForm } from "react-hook-form";
 import styles from "../../../styles/edit.module.scss";
 import { Loading } from "../../../components/Loading/Loading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Router from "next/router";
 import { toast } from "react-toastify";
 import { Api } from "../../../providers/Api/api";
@@ -14,9 +14,19 @@ const EditForm = (props) => {
     handleSubmit,
     formState: { errors },
     control,
+    setValue,
   } = useForm();
 
   const user = JSON.parse(localStorage.getItem("userAuthentication"));
+
+  useEffect(() => {
+    if (props.profile) {
+      setValue("name", props.profile.name);
+      setValue("bio", props.profile.bio);
+      setValue("phone", props.profile.phone);
+      setValue("email", props.profile.email);
+    }
+  }, [props.profile]);
 
   const handleEdit = async (data) => {
     if (!user) return;
@@ -73,6 +83,7 @@ const EditForm = (props) => {
         <input
           type="text"
           name="name"
+          defaultValue={props.profile?.name ?? ""}
           placeholder="Enter your name..."
           {...register("name", EditOptions.name)}
         />

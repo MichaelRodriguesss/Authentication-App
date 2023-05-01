@@ -5,9 +5,10 @@ import Header from "../components/Header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdPhotoCamera } from "react-icons/md";
 import Modal from "../components/Modal/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Edit from "../components/Form/Edit";
 import { usePrivateRouter } from "@/hooks/usePrivateRouter";
+import { Api } from "@/providers/Api/api";
 
 export default function EditPage() {
   const [dropdown, setDropdown] = useState(false);
@@ -16,10 +17,34 @@ export default function EditPage() {
     "https://wallpapercave.com/wp/wp9566480.png"
   );
   const [avatarImage, setAvatarImage] = useState();
+  const [profile, setProfile] = useState(null);
 
   const myLoader = () => {
     return "https://wallpapercave.com/wp/wp9566480.png";
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage?.getItem("userAuthentication"));
+
+    const fetchUser = async () => {
+      try {
+        if (!user) return;
+        const response = await Api.get(`/api/users/${user._id}`);
+        return setProfile(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    if (profile) {
+      const avatar = `https://authentication-app-back-end.up.railway.app/images/${profile?.src}`;
+      setAvatar(avatar);
+    }
+  }, [profile]);
 
   const { isAuthenticated } = usePrivateRouter();
 
@@ -73,7 +98,7 @@ export default function EditPage() {
             </div>
             <p>Change photo</p>
           </div>
-          <Edit avatarImage={avatarImage} />
+          <Edit avatarImage={avatarImage} profile={profile} />
         </div>
       </section>
     </>
