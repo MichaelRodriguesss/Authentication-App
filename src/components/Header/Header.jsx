@@ -50,9 +50,7 @@ export default function Header({ dropdown, setDropdown }) {
       <header className={styles.containerHeader}>
         <div className={styles.headerItems}>
           <Image src={logo} alt="devchallenges" className={styles.headerLogo} />
-          <h1>
-            <Link href="/">devchallenges</Link>
-          </h1>
+          <h1>devchallenges</h1>
         </div>
 
         <div className={styles.avatar}>

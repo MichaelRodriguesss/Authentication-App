@@ -7,6 +7,7 @@ const Modal = ({ setIsOpen, setAvatar, setAvatarImage }) => {
   const [preSelectAvatar, setPreSelectAvatar] = useState();
 
   const handleClickToggleAvatar = () => {
+    if (!preSelectAvatar) return;
     setAvatar(preSelectAvatar);
     setIsOpen(false);
   };
@@ -34,6 +35,7 @@ const Modal = ({ setIsOpen, setAvatar, setAvatarImage }) => {
               <button
                 className={styles.saveBtn}
                 onClick={handleClickToggleAvatar}
+                disabled={preSelectAvatar ? false : true}
               >
                 Confirm
               </button>

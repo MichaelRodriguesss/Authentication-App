@@ -41,7 +41,9 @@ export default function EditPage() {
 
   useEffect(() => {
     if (profile) {
-      const avatar = `https://authentication-app-back-end.up.railway.app/images/${profile?.src}`;
+      const avatar = profile?.src
+        ? `https://authentication-app-back-end.up.railway.app/images/${profile?.src}`
+        : "https://wallpapercave.com/wp/wp9566480.png";
       setAvatar(avatar);
     }
   }, [profile]);

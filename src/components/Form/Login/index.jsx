@@ -29,7 +29,7 @@ const LoginForm = () => {
       Api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
       Router.push("/profile");
       setLoading(false);
-      toast.success("User logged successfully!");
+      return toast.success("User logged successfully!");
     } catch (err) {
       setLoading(false);
       toast.error("Error logging user!");
