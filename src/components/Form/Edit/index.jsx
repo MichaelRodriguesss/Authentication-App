@@ -32,7 +32,11 @@ const EditForm = (props) => {
     if (!user) return;
     try {
       const formData = new FormData();
-      formData.append("file", props.avatarImage[0]);
+      formData.append(
+        "file",
+        props.avatarImage?.length > 0 &&
+          formData.append("file", props.avatarImage[0])
+      );
       formData.append("name", data.name);
       formData.append("bio", data.bio);
       formData.append("phone", data.phone);
