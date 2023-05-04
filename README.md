@@ -52,7 +52,7 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 
 - [React](https://reactjs.org/)
 - [Next](https://nextjs.org/)
-- [Scss](https://sass.com/)
+- [Scss](https://sass-lang.com/)
 - [Axios](https://axios-http.com/)
 
 ## Features
